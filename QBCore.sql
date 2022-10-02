@@ -1,0 +1,1 @@
+ALTER TABLE `player_vehicles` ADD `tunerdata` LONGTEXT NOT NULL;

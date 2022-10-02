@@ -1,0 +1,140 @@
+.full-screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*background-image: url("https://androidprog.com/wp-content/uploads/2020/07/gta5-1.jpg");
+    background-size: cover;*/
+    caret-color: transparent;
+    user-select: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+#main-container {
+    font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    height: 100%;
+    overflow: hidden !important;
+    justify-content: center;
+    align-items: center;
+}
+.tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: auto;
+}
+.tablet img {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.tablet-inner {
+    width: 60%;
+    height: 22vw;
+}
+
+.screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.text-right {
+    margin-top: 2%;
+}
+
+.title {
+    font-size: 28px;
+}
+.fa-circle-xmark {
+    color: #db0901;
+}
+.label {
+    margin: 0;
+}
+.buttons {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.option {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.disabled {
+    color: #724747;
+}
+.disabled input[type=range] {
+    border: 1px solid rgb(160, 0, 0);
+}
+button {
+    padding: 10px;
+    font-weight: 700;
+}
+#cancel {
+    background-color: #db0901;
+}
+#default {
+    background-color: #dbb301;
+}
+#submit {
+    background-color: #2ab7a9;
+}
+
+
+.ecutext-container {
+    background-color: #000000;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    user-select: none;
+}
+.var-highlight{
+	color: #008ae6;
+}
+.string-highlight{
+	color: #008ae6;
+}
+
+#typewriter{
+	padding-top: 5px;
+	font-size: 10px;
+    color: #fff;
+	margin: 0;
+	overflow: hidden;
+	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+
+		&:after{
+			content: "|";
+			animation: blink 500ms linear infinite alternate;
+		}
+}
+
+@-webkit-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}

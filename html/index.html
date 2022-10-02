@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha512-m2PhLxj2N91eYrIGU2cmIu2d0SkaE4A14bCjVb9zykvp6WtsdriFCiXQ/8Hdj0kssUB/Nz0dMBcoLsJkSCto0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css" integrity="sha512-t38vG/f94E72wz6pCsuuhcOPJlHKwPy+PY+n1+tJFzdte3hsIgYE7iEpgg/StngunGszVMrRfvwZinrza0vMTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="script.js" type="text/javascript"></script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <div class="full-screen">
+            <div id="main-container">
+                <div class="tablet">
+                    <img src="images/snapon.png"/>
+                    <div class="tablet-inner">
+                        <div class="screen container">
+                            <div class="row top">
+                                <div class="col s12">
+                                    <h3 class="title">T3 Tunerchip</h3>
+                                </div>
+                            </div>
+                            <div class="row main">
+                                <div class="col s6 left">
+                                    <div class="option" id="turbo-option">
+                                        <p class="label">Turbo</p>
+                                        <small class="left">-16PSI</small><small class="right">+16PSI</small>
+                                        <input class="slide" type="range" id="turbo" step="10" min="50" max="150">
+                                    </div>
+                                    <div class="option">
+                                        <p class="label">Air/Fuel</p>
+                                        <small class="left">Rich</small><small class="right">Lean</small>
+                                        <input class="slide" type="range" id="airFuel" step="10" min="50" max="150">
+                                    </div>
+                                    <div class="option">
+                                        <p class="label">Brake Force</p>
+                                        <small class="left">Weak</small><small class="right">Strong</small>
+                                        <input class="slide" type="range" id="brakeForce" step="10" min="50" max="150">
+                                    </div>
+                                </div>
+                                <div class="col s6 right">
+                                    <div class="option">
+                                        <p class="label">Transmission</p>
+                                        <small class="left">Acceleration</small><small class="right">Top Speed</small>
+                                        <input class="slide" type="range" id="trans" step="10" min="50" max="150">
+                                    </div>
+                                    <div class="option">
+                                        <p class="label">Drive Bias</p>
+                                        <small class="left">Rear</small><small class="right">Front</small>
+                                        <input class="slide" type="range" id="drive" step="0.05" min="0.0" max="1">
+                                    </div>
+                                    <div class="option">
+                                        <p class="label">Brake Bias</p>
+                                        <small class="left">Rear</small><small class="right">Front</small>
+                                        <input class="slide" type="range" id="brakeBias" step="0.05" min="0.0" max="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ecutext-container hide">
+                                <pre id="typewriter">
+                                    <span class="var-highlight">Init</span> lmECU.exe
+                                    <span class="string">--------------------------------</span>
+                                    lmECU:\ <span class="string">validating engineer key</span>
+                                    lmECU:\ <span class="string">validation success</span>
+                                    lmECU:\ <span class="string">accessing sensors</span>
+                                    lmECU:\ <span class="string">parsing senslog.xml</span>
+                                    lmECU-senslog:\ <span class="string-highlight">running diagnostics</span>
+                                                    <span class="string-highlight"> 0 faults detected</span>
+                                    lmECU:\ <span class="string">applying modifications...</span>
+                                    lmECU:\ <span class="string">generating senslog.xml</span>
+                                    lmECU:\ <span class="string">parsing senslog.xml</span>
+                                    lmECU-senslog:\ <span class="string-highlight">running diagnostics</span>
+                                                    <span class="string-highlight"> 0 faults detected</span>
+                                    lmECU:\ <span class="string">ECU remap successful</span>
+                                    lmECU:\ <span class="string">end lmECU.exe</span>
+                                    <br></br>
+                                </pre>
+                            </div>
+                            <div class="buttons">
+                                <button id="cancel">Exit</button>
+                                <button id="default">Default</button>
+                                <button id="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<style class="hover"></style>
+    </body>
+</html>
