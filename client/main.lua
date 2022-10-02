@@ -158,14 +158,45 @@ end)
 RegisterNetEvent("t3_tunerchip:useLaptop")
 AddEventHandler("t3_tunerchip:useLaptop", function()
     if not menu then
-        exports['progressBars']:startUI(2500, "Connecting Tuner Chip")
-        Citizen.Wait(2500)
-        local ped = PlayerPedId()
-        toggleMenu(true,true)
-        while IsPedInAnyVehicle(ped, false) and GetPedInVehicleSeat(GetVehiclePedIsIn(ped, false), -1)==ped do
-            Citizen.Wait(100)
+        if Config.Framework == 'ESX' then
+            exports["esx_progressbar"]:Progressbar("Connecting Laptop", 2500,{
+                FreezePlayer = true, 
+                animation ={
+                    type = "anim",
+                    dict = "anim@mp_player_intmenu@key_fob@", 
+                    lib ="fob_click"
+                },
+                onFinish = function()
+                    local ped = PlayerPedId()
+                    toggleMenu(true,true)
+                    while IsPedInAnyVehicle(ped, false) and GetPedInVehicleSeat(GetVehiclePedIsIn(ped, false), -1)==ped do
+                        Citizen.Wait(100)
+                    end
+                    toggleMenu(false,true)
+            end})
+        elseif Config.Framework == 'QBCore' then
+            QBCore.Functions.Progressbar("connect_laptop", "Connecting Laptop", 2500, false, true, {
+                disableMovement = true,
+                disableCarMovement = true,
+                disableMouse = false,
+                disableCombat = true,
+            }, {
+                animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",
+                anim = "machinic_loop_mechandplayer",
+                flags = 16,
+            }, {}, {}, function() -- Done
+                StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+                local ped = PlayerPedId()
+                toggleMenu(true,true)
+                while IsPedInAnyVehicle(ped, false) and GetPedInVehicleSeat(GetVehiclePedIsIn(ped, false), -1)==ped do
+                    Citizen.Wait(100)
+                end
+                toggleMenu(false,true)
+            end, function() -- Cancel
+                StopAnimTask(PlayerPedId(), "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
+                QBCore.Functions.Notify("Cancelled before laptop connected", "error")
+            end)
         end
-        toggleMenu(false,true)
     else
         return
     end
