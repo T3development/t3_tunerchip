@@ -270,5 +270,5 @@ Citizen.CreateThread(function(...)
 end)
 
 RegisterCommand("untune", function(source, args)
-  TriggerServerEvent('tuning:UnSetData', ESX.Game.GetVehicleProperties(GetVehiclePedIsIn(PlayerPedId(),false)))
+  TriggerServerEvent('t3_tunerchip:UnSetData', ESX.Game.GetVehicleProperties(GetVehiclePedIsIn(PlayerPedId(),false)))
 end)
