@@ -46,7 +46,7 @@ if Config.Framework == 'ESX' then
 elseif Config.Framework == 'QBCore' then
     QBCore = exports['qb-core']:GetCoreObject()
 
-    QBCore.Functions.CreateUsableItem("tuning_laptop",function(source, item)
+    QBCore.Functions.CreateUseableItem("tuning_laptop",function(source, item)
         local _source = source
         TriggerClientEvent("t3_tunerchip:useLaptop",source)
     end)
